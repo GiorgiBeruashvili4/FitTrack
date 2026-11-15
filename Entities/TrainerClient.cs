@@ -2,6 +2,8 @@
 
 public class TrainerClient
 {
+    public int Id { get; set; }
+
     public DateOnly Since { get; set; }
 
     public User Trainer { get; set; } = null!;
