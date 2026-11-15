@@ -1,0 +1,40 @@
+# Build output
+bin/
+obj/
+[Bb]uild/
+out/
+publish/
+
+# IDE and editor files
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# SQLite database files (the DB is recreated via migrations)
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Secrets and local configuration
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+.env
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test results and packages
+TestResults/
+*.nupkg
