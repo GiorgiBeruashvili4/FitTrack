@@ -1,9 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>c2ce3855-ecb9-4924-bb66-3e2439114bd2</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,11 +28,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Common\" />
     <Folder Include="Controllers\" />
     <Folder Include="DTOs\" />
     <Folder Include="Mapping\" />
-    <Folder Include="Validators\" />
+    <Folder Include="Responses\" />
+    <Folder Include="Requests\" />
     <Folder Include="Services\Interfaces\" />
+    <Folder Include="Validators\" />
     <Folder Include="Services\Implementations\" />
   </ItemGroup>
 
