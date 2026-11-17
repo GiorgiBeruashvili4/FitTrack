@@ -2,6 +2,6 @@
 
 public class AuthResponse
 {
-    public string accessToken { get; set; } = string.Empty;
-    public DateTime createdAt { get; set; }
+    public string CccessToken { get; set; } = string.Empty;
+    public DateTime ExpiresAt { get; set; }
 }
