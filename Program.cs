@@ -1,8 +1,13 @@
 using FitTrack.Data;
 using FitTrack.Data.Seed;
+using FitTrack.DTOs.Auth;
 using FitTrack.Extensions;
 using FitTrack.Filters;
+using FitTrack.Services.Implementations;
+using FitTrack.Services.Interfaces;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
+using SharpGrip.FluentValidation.AutoValidation.Mvc.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +17,7 @@ builder.Services.AddControllers(options =>
 })
 .ConfigureApiBehaviorOptions(options =>
 {
-    options.InvalidModelStateResponseFactory = ValidationResponseExtention.Create;
+    options.InvalidModelStateResponseFactory = ValidationResponseExtension.Create;
 });
 
 builder.Services.AddEndpointsApiExplorer();
@@ -20,6 +25,14 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<Database>(
     options => options.UseSqlServer(
         builder.Configuration.GetConnectionString("Connection")));
+
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+builder.Services.AddFluentValidationAutoValidation();
+
+builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+
+builder.Services.AddAutoMapper(cfg => { }, typeof(Program).Assembly);
 
 var app = builder.Build();
 
@@ -38,6 +51,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
