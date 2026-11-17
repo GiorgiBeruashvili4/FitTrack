@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FitTrack.Extensions;
 
-public static class ValidationResponseExtention
+public static class ValidationResponseExtension
 {
     public static IActionResult Create(ActionContext context)
     {
